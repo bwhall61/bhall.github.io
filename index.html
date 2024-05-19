@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="3Dmol-min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+</head>
+<body>
+  <div id='moleculeViewer'></div>
+
+  <div id="info-panel" class="panel">
+    <div class="button-container">
+      <button class="open-about-content btn btn-moving-gradient btn-moving-gradient--purple">About</button>
+      <button class="open-projects-content btn btn-moving-gradient btn-moving-gradient--purple">Projects</button>
+      <button class="open-research-content btn btn-moving-gradient btn-moving-gradient--purple">Research Interests</button>
+      <button class="open-contact-content btn btn-moving-gradient btn-moving-gradient--purple">Contact</button>
+      <button class="close-panel btn close-btn-moving-gradient btn-moving-gradient--purple">X</button>
+    </div>
+
+    <div id="about-content" class="content">
+      <div class="text-container">
+        <img src="headshot.jpg" style="width:auto;height:17vw;"></img>
+        <p>
+            My name is Brendan Hall and I'm a third year PhD student in the Biophysics
+            program at UCSF in the lab of Brian Shoichet (and previosuly Mike Keiser).
+        </p>
+        <p>
+            I went to Williams College where I got degrees in Physics and Math and did
+            research with Daniel Aalberts modeling the kinetics of translation elongation
+            and codon dependent ribosomal stalling.
+        </p>
+        <p>
+            Now at UCSF I work in structure based drug discovery and virtual screening
+            where I am developing methods to more efficiently traverse and score chemical space.
+        </p>
+        <p>
+            In my free time I enjoy playing pickup volleyball and exploring the bars
+            and restaurants in San Francisco.
+        </p>
+      </div>
+    </div>
+
+    <div id="research-content" class="content">
+      <div class="text-container">
+        <p class="top-title">
+            At a high level I'm interested in how cheminformatic and machine learning
+            approaches can be applied to aid in the field of drug discovery with an emphasis
+            on virtual screening and molecular docking. As with most computational biophysics, virtual
+            screening comes down to two things:
+          <p>
+          <p>
+            1) Sampling, or how we pick molecules from the vast universe of chemical space to evaluate
+          </p>
+          <p>
+            2) Scoring, or how we evaluate these molecules for their desirable properties (binding affinity,
+            ADMET properties, etc...)
+          </p>
+          <p>
+            While most of my research so far has focused on how we sample molecules from chemical space (RAD)
+            I have a longer term interest in combining these improved sampling methods with improved scoring functions.
+            We still rely heavily on physics based scoring functions,
+            but I believe the current wealth of biophysical data will ultimately allow us to
+            train models that are able to more accurately and quickly predict binding affinity.
+            In combination with improved chemical space sampling, this will enable the
+            rapid and accurate screening of chemical libraries of tens of billions of molecules
+            and beyond.
+          </p>
+          <p>
+            I am currently part of the QCRG AViDD project working to apply these
+            methods to screen for molecules targeting SARS-Cov-2 proteins.
+          </p>
+      </div>
+    </div>
+
+    <div id="contact-content" class="content">
+      <div class="text-container">
+        <p class="top-title">
+            You can reach me by email at: <a href="mailto:brendan.hall@ucsf.edu">brendan.hall@ucsf.edu</a>
+        </p>
+        <p>
+            You can find me on twitter at: <a href="https://twitter.com/bhall11_">@bhall11_</a>
+        </p>
+      </div>
+    </div>
+
+    <div id="projects-content" class="content">
+      <div class="text-container">
+        <p class='project-title top-title'>Retrieval Augmented Docking (RAD)</p>
+        <div class="project-img-container">
+          <img src="rad.png"></img>
+        </div>
+        <p>
+            Molecular docking is a method that computationally predicts how well molecules
+            bind to proteins as a way to screen for potential drugs. Docking the tens to hundreds
+            of billions of commercially available molecules takes significant computational
+            resources and considerable time. We found that pre-organizing chemical
+            libraries into hierarchical navigable small world (HNSW) graphs
+            allows us to find a majority of the best molecules while docking only a fraction of the total library,
+            saving significant time, and allowing us to explore many more chemotypes. We retrospectively
+            demonstrated this method for screening 100 million molecules
+            against 2 receptors with 2 different scoring functions.
+        </p>
+        <p>
+            For more info see the <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6626f8e021291e5d1d6a1cd7">preprint</a>
+            or the <a href="https://github.com/keiserlab/rad">github repo</a>
+        </p>
+        <p class='project-title'> Saturday Night Science </p>
+        <p>
+            As part of a UCSF donor outreach event, I created an
+            interactive drug design experience to highlight how ML is being used in
+            drug discovery. Participants were split into groups and worked
+            to build physical molecular models which were then scanned via webcam to a computer where their
+            molecules could be docked, scored, and explored in virtual reality. All the while, they competed
+            against ML models which were doing high throughput virtual screening and small molecule diffusion. A central
+            leaderboard visualized the diffusion process, highlighted the speed at which ML methods explore
+            chemical space compared to humans, and showed the best scoring molecules discovered by each group and the
+            different ML methods.
+        </p>
+        <p class='project-title'> Ribosome Profiling Data </p>
+            Ribosome profiling is a method to identify the ribosome pause sites within the transcriptome.
+            Performing this technique in E. Coli requires an enzyme that demonstrates significant sequence
+            bias during RNA cleavage. This hampers our ability to precisely determine the position of the
+            ribosomes. We use 3' count assignment, pooling, and a debiasing method to more accurately
+            predict the location of ribosomes. We use this improved data to calculate relative codon stalling rates
+            and find that they are not strongly correlated with relative tRNA concentrations.
+        <p>
+            Preprint coming soon
+        </p>
+        <p class='project-title'> This Website </p>
+        <p>
+            One day I saw that Google was offering .phd domains and figured that was a sign
+            to make my own website. Rather than make a typical informational website, I wanted something
+            interactive that showcased my interests in small molecule drug discovery. I saw a super cool
+            project called 3Dmol.js which provided really slick molecular visualizations and knew that
+            I wanted to build my site using it. After modifying it slightly, this is what I ended up with!
+            Hope you like it :)
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+
+</body>
+</html>

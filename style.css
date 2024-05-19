@@ -1,0 +1,176 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#moleculeViewer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.panel {
+    position: fixed;
+    top: 10vh;
+    right: -55vw;
+    width: 50vw;
+    height: 80vh;
+    background-color: rgb(35 93 102 / 50%);
+    transition: right 2s;
+    padding:0.5em;
+    /* padding:50px; */
+    /* border: 50px solid transparent; */
+    border-radius: 2vw; /* rounded corners */
+}
+
+
+.panel.open {
+    right: 5vw;
+}
+
+
+.content {
+    color: white;
+    position: fixed;
+    right: -55vw; /* Initially positioned off-screen */
+    width: 50vw; /* Same width as the panel */
+    height: 80vh;
+    transition: right 2s 0.5s; /* Transition with delay */
+    flex-direction: column;
+    /* Flexbox properties for stacking buttons */
+    display: flex;
+    align-items: center; /* Vertically center align items */
+    justify-content: flex-start; /* Align items to the start of the container */
+    padding-top: 3vh;
+}
+
+.content.open {
+    right: 5vw; /* Positioned to align with the panel when open */
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    width:100%;
+    margin-top: 0.5em;
+}
+
+.text-container {
+    width:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left; /* Center the text inside the text container */
+    font-size: 1.5em;
+    overflow: auto; /* Enable scrolling */
+    max-height: 70vh; /* Adjust based on your actual available space */
+}
+
+.text-container p {
+    text-align: left;
+}
+
+
+.project-title {
+    font-weight: bold; /* Makes the text bold */
+    font-size: 1.35em; /* Sets the size of the font. Adjust as needed */
+    text-decoration: underline;
+}
+
+.top-title {
+  margin-block-start: 0;
+}
+
+.project-img-container {
+    width: auto;
+    height: 13vw; /* This makes the height adjust automatically */
+}
+
+.project-img-container img {
+    width: auto;
+    height: 100%; /* Maintain aspect ratio */
+}
+
+.btn{
+	display:block;
+	/* margin:auto; */
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	position: relative;
+	cursor: pointer;
+
+}
+
+.close-btn-moving-gradient{
+  background: none;
+  margin-top: 2vh;
+  margin-left: 1vw;
+  height: 4vh;
+  width: 4vw;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 3.5vw;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.btn-moving-gradient{
+	height: 6vh;
+	width: 10vw;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	cursor: pointer;
+	border: none;
+	background-size: 300% 100%;
+	border-radius: 0.75em;
+	-moz-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	-webkit-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+.btn:hover {
+	background-position: 100% 0;
+	-moz-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	-webkit-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+.highlight {
+    background-color: rgba(138, 43, 226, 0.2); /* Light purple background */
+    border: 2px solid #8a2be2; /* Matching border */
+    box-shadow: 0 0 8px #c29ed8; /* Enhanced purple glow for more prominence */
+}
+
+.btn-moving-gradient--purple{
+	background-image: linear-gradient(to right,hsl(246, 45%, 38%), hsl(296, 45%, 38%), hsl(276, 45%, 38%) , #3D348B);
+	/* box-shadow: 0 0.2vw 0.2vh 0 hsl(296, 45%, 38%); */
+}
+
+
+/* Unvisited link */
+a {
+    color: #75A8EB;
+}
+
+/* Visited link */
+a:visited {
+    color: #75A8EB;
+}
+
+/* Hovered link */
+a:hover {
+    color: #CBC3E3;
+}
