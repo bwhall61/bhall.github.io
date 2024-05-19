@@ -1,0 +1,11 @@
+# Ignore the entire 3Dmol.js directory
+3Dmol.js/*
+
+# But don't ignore the build directory
+!3Dmol.js/build/
+
+# Ignore everything in the build directory
+3Dmol.js/build/*
+
+# Except for 3Dmol-min.js
+!3Dmol.js/build/3Dmol-min.js
