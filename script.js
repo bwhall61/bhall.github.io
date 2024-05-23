@@ -15,7 +15,8 @@ var BOND_COLOR = '#90959D';
 
 let viewer = $3Dmol.createViewer("moleculeViewer",{
   backgroundColor: '#151F32',
-  antialias: false
+  antialias: false,
+  cartoonQuality: 1
 });
 
 
