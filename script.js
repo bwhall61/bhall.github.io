@@ -278,11 +278,11 @@ $.get(`sdfs/${randomMol}.sdf`, function(data) {
     //viewer.zoom(1.5);  // zoom out a bit
 
 
-    // let style = {
-    //     stick: {radius: 0.2, color: BOND_COLOR},
-    //     sphere: {radius: 0.5, colorscheme: CUSTOM_COLOR_SCHEME}
-    // };
-    // viewer.setStyle(style);
+    let style = {
+        stick: {radius: 0.2, color: BOND_COLOR},
+        sphere: {radius: 0.5, colorscheme: CUSTOM_COLOR_SCHEME}
+    };
+    viewer.setStyle(style);
     //
     // let allatoms = viewer.selectedAtoms({});
     // const centerOfMass = getCOM(allatoms);
