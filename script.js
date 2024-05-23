@@ -16,8 +16,9 @@ var BOND_COLOR = '#90959D';
 let viewer = $3Dmol.createViewer("moleculeViewer",{
   backgroundColor: '#151F32',
   antialias: false,
-  cartoonQuality: 1
 });
+
+viewer.setDefault
 
 
 var current_quaternion;
@@ -277,108 +278,107 @@ $.get(`sdfs/${randomMol}.sdf`, function(data) {
     //viewer.zoom(1.5);  // zoom out a bit
 
 
-    let style = {
-        stick: {radius: 0.2, color: BOND_COLOR},
-        // sphere: {radius: 0.5, colorscheme: 'JMol'}
-        sphere: {radius: 0.5, colorscheme: CUSTOM_COLOR_SCHEME}
-    };
-    viewer.setStyle(style);
-
-    let allatoms = viewer.selectedAtoms({});
-    const centerOfMass = getCOM(allatoms);
-    let atoms = getKFurthestAtoms(10, centerOfMass, 4);
-
-
-    let selectedAtoms = [];
-    let labels = [];
-    let labelNames = ["Research", "About", "Contact", "Projects"];
-    let randomIndex;
-    while (selectedAtoms.length < 4) {
-        randomIndex = Math.floor(random() * atoms.length);
-        // Ensure the atom is not already selected
-        if (!selectedAtoms.includes(atoms[randomIndex])) {
-            selectedAtoms.push(atoms[randomIndex]);
-        }
-    }
-
-    for (let i = 0; i < selectedAtoms.length; i++) {
-        let atomLabel = viewer.addLabel(labelNames[i], {
-            font: 'Arial',
-            position: selectedAtoms[i],
-            showBackground: false,
-            fontSize: DEFAULT_FONT_SIZE,
-            alignment: "center"
-        });
-
-        labels.push(atomLabel)
-
-        viewer.setClickable({serial: selectedAtoms[i].serial}, true, function(atom) {
-            openPanel(atom, labels, centerOfMass, labelNames[i], [i], [0, 1, 2, 3].filter(element => element !== i), []);
-        });
-    }
-
-    document.querySelectorAll('.close-panel').forEach(function(element) {
-        element.addEventListener('click', function() {
-          document.querySelectorAll('.btn').forEach(function(btn) {
-            btn.classList.remove('highlight');
-          });
-          closePanel();
-          viewer.rotateWQ(current_quaternion, current_position.x, current_position.y, current_atom, 2000, labels,
-             [], [], [0,1,2,3], LARGE_FONT_SIZE, DEFAULT_FONT_SIZE, fixedPath=1);
-        });
-    });
-
-    document.querySelectorAll('.open-research-content').forEach(function(element) {
-        element.addEventListener('click', function() {
-            document.querySelectorAll('.btn').forEach(function(btn) {
-              btn.classList.remove('highlight');
-            });
-
-            // Highlight the clicked button
-            this.classList.add('highlight');
-            closePanel();
-            openPanel(selectedAtoms[0], labels, centerOfMass, labelNames[0], [0], [1,2,3], []);
-        });
-    });
-
-    document.querySelectorAll('.open-about-content').forEach(function(element) {
-        element.addEventListener('click', function() {
-            document.querySelectorAll('.btn').forEach(function(btn) {
-              btn.classList.remove('highlight');
-            });
-
-            // Highlight the clicked button
-            this.classList.add('highlight');
-            closePanel();
-            openPanel(selectedAtoms[1], labels, centerOfMass, labelNames[1], [1], [0,2,3], [] );
-        });
-    });
-
-    document.querySelectorAll('.open-contact-content').forEach(function(element) {
-        element.addEventListener('click', function() {
-            document.querySelectorAll('.btn').forEach(function(btn) {
-              btn.classList.remove('highlight');
-            });
-
-            // Highlight the clicked button
-            this.classList.add('highlight');
-            closePanel();
-            openPanel(selectedAtoms[2], labels, centerOfMass, labelNames[2], [2], [0,1,3], [] );
-        });
-    });
-
-    document.querySelectorAll('.open-projects-content').forEach(function(element) {
-        element.addEventListener('click', function() {
-            document.querySelectorAll('.btn').forEach(function(btn) {
-              btn.classList.remove('highlight');
-            });
-
-            // Highlight the clicked button
-            this.classList.add('highlight');
-            closePanel();
-            openPanel(selectedAtoms[3], labels, centerOfMass, labelNames[3], [3], [0,1,2], [])
-        });
-    });
+    // let style = {
+    //     stick: {radius: 0.2, color: BOND_COLOR},
+    //     sphere: {radius: 0.5, colorscheme: CUSTOM_COLOR_SCHEME}
+    // };
+    // viewer.setStyle(style);
+    //
+    // let allatoms = viewer.selectedAtoms({});
+    // const centerOfMass = getCOM(allatoms);
+    // let atoms = getKFurthestAtoms(10, centerOfMass, 4);
+    //
+    //
+    // let selectedAtoms = [];
+    // let labels = [];
+    // let labelNames = ["Research", "About", "Contact", "Projects"];
+    // let randomIndex;
+    // while (selectedAtoms.length < 4) {
+    //     randomIndex = Math.floor(random() * atoms.length);
+    //     // Ensure the atom is not already selected
+    //     if (!selectedAtoms.includes(atoms[randomIndex])) {
+    //         selectedAtoms.push(atoms[randomIndex]);
+    //     }
+    // }
+    //
+    // for (let i = 0; i < selectedAtoms.length; i++) {
+    //     let atomLabel = viewer.addLabel(labelNames[i], {
+    //         font: 'Arial',
+    //         position: selectedAtoms[i],
+    //         showBackground: false,
+    //         fontSize: DEFAULT_FONT_SIZE,
+    //         alignment: "center"
+    //     });
+    //
+    //     labels.push(atomLabel)
+    //
+    //     viewer.setClickable({serial: selectedAtoms[i].serial}, true, function(atom) {
+    //         openPanel(atom, labels, centerOfMass, labelNames[i], [i], [0, 1, 2, 3].filter(element => element !== i), []);
+    //     });
+    // }
+    //
+    // document.querySelectorAll('.close-panel').forEach(function(element) {
+    //     element.addEventListener('click', function() {
+    //       document.querySelectorAll('.btn').forEach(function(btn) {
+    //         btn.classList.remove('highlight');
+    //       });
+    //       closePanel();
+    //       viewer.rotateWQ(current_quaternion, current_position.x, current_position.y, current_atom, 2000, labels,
+    //          [], [], [0,1,2,3], LARGE_FONT_SIZE, DEFAULT_FONT_SIZE, fixedPath=1);
+    //     });
+    // });
+    //
+    // document.querySelectorAll('.open-research-content').forEach(function(element) {
+    //     element.addEventListener('click', function() {
+    //         document.querySelectorAll('.btn').forEach(function(btn) {
+    //           btn.classList.remove('highlight');
+    //         });
+    //
+    //         // Highlight the clicked button
+    //         this.classList.add('highlight');
+    //         closePanel();
+    //         openPanel(selectedAtoms[0], labels, centerOfMass, labelNames[0], [0], [1,2,3], []);
+    //     });
+    // });
+    //
+    // document.querySelectorAll('.open-about-content').forEach(function(element) {
+    //     element.addEventListener('click', function() {
+    //         document.querySelectorAll('.btn').forEach(function(btn) {
+    //           btn.classList.remove('highlight');
+    //         });
+    //
+    //         // Highlight the clicked button
+    //         this.classList.add('highlight');
+    //         closePanel();
+    //         openPanel(selectedAtoms[1], labels, centerOfMass, labelNames[1], [1], [0,2,3], [] );
+    //     });
+    // });
+    //
+    // document.querySelectorAll('.open-contact-content').forEach(function(element) {
+    //     element.addEventListener('click', function() {
+    //         document.querySelectorAll('.btn').forEach(function(btn) {
+    //           btn.classList.remove('highlight');
+    //         });
+    //
+    //         // Highlight the clicked button
+    //         this.classList.add('highlight');
+    //         closePanel();
+    //         openPanel(selectedAtoms[2], labels, centerOfMass, labelNames[2], [2], [0,1,3], [] );
+    //     });
+    // });
+    //
+    // document.querySelectorAll('.open-projects-content').forEach(function(element) {
+    //     element.addEventListener('click', function() {
+    //         document.querySelectorAll('.btn').forEach(function(btn) {
+    //           btn.classList.remove('highlight');
+    //         });
+    //
+    //         // Highlight the clicked button
+    //         this.classList.add('highlight');
+    //         closePanel();
+    //         openPanel(selectedAtoms[3], labels, centerOfMass, labelNames[3], [3], [0,1,2], [])
+    //     });
+    // });
 
 
     viewer.render();
