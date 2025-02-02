@@ -269,11 +269,16 @@ function random() {
 
 
 let randomMol = Math.floor(Math.random() * 15);
-// let randomMol = 14;
 
 $.get(`sdfs/${randomMol}.sdf`, function(data) {
     viewer.addModel(data, 'sdf');
     viewer.zoomTo();
+
+    // Zoom model out for mobile
+    if (viewportWidth <= 768) {
+        viewer.zoom(0.5) 
+    }
+
     viewer.translate(150/1440 * viewportWidth, 35/812 * viewportHeight);
 
 
