@@ -7,13 +7,18 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    background-color: #151F32;
 }
 
 #moleculeViewer {
-    width: 100%;
-    height: 100%;
-    position: relative;
+    width: 65%;
+    height: 75%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
+
+
 
 .panel {
     position: fixed;

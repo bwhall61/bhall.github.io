@@ -14,6 +14,7 @@ var BOND_COLOR = '#90959D';
 
 
 let viewer = $3Dmol.createViewer("moleculeViewer",{
+  disableFog: true,
   backgroundColor: '#151F32',
   antialias: false
 });
@@ -273,7 +274,7 @@ let randomMol = Math.floor(Math.random() * 15);
 $.get(`sdfs/${randomMol}.sdf`, function(data) {
     viewer.addModel(data, 'sdf');
     viewer.zoomTo();
-    //viewer.zoom(1.5);  // zoom out a bit
+    viewer.translate(150/1440 * viewportWidth, 35/812 * viewportHeight);
 
 
     let style = {
