@@ -276,7 +276,7 @@ $.get(`sdfs/${randomMol}.sdf`, function(data) {
 
     // Zoom model out for mobile
     if (viewportWidth <= 768) {
-        viewer.zoom(0.5) 
+        viewer.zoom(0.1) 
     }
 
     viewer.translate(150/1440 * viewportWidth, 35/812 * viewportHeight);
