@@ -1,26 +1,27 @@
 html, body {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     background-color: #151F32;
 }
 
+
 #moleculeViewer {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     max-width: 100%;
 }
 
 #moleculeViewer canvas{
-    width:100%;
-    height:100%;
+    width:100% !important;
+    height:100% !important;
     max-width: 100%;
-    position:unset;
+    position:unset !important;
+    overflow:hidden !important; 
 }
 
 .panel {
@@ -32,9 +33,9 @@ html, body {
     background-color: rgb(35 93 102 / 50%);
     transition: right 2s;
     padding:0.5em;
-    /* padding:50px; */
-    /* border: 50px solid transparent; */
-    border-radius: 2vw; /* rounded corners */
+    border-radius: 2vw;
+
+    display:none !important;
 }
 
 .panel.open {
@@ -44,20 +45,19 @@ html, body {
 .content {
     color: white;
     position: fixed;
-    right: -55vw; /* Initially positioned off-screen */
-    width: 50vw; /* Same width as the panel */
+    right: -55vw;
+    width: 50vw;
     height: 80vh;
-    transition: right 2s 0.5s; /* Transition with delay */
+    transition: right 2s 0.5s;
     flex-direction: column;
-    /* Flexbox properties for stacking buttons */
     display: flex;
-    align-items: center; /* Vertically center align items */
-    justify-content: flex-start; /* Align items to the start of the container */
+    align-items: center;
+    justify-content: flex-start;
     padding-top: 3vh;
 }
 
 .content.open {
-    right: 5vw; /* Positioned to align with the panel when open */
+    right: 5vw;
 }
 
 .button-container {
@@ -70,10 +70,10 @@ html, body {
 .text-container {
     width:100%;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: left; /* Center the text inside the text container */
+    text-align: left;
     font-size: 1.25em;
-    overflow: auto; /* Enable scrolling */
-    max-height: 70vh; /* Adjust based on your actual available space */
+    overflow: auto;
+    max-height: 70vh;
 }
 
 .text-container p {
@@ -82,8 +82,8 @@ html, body {
 
 
 .project-title {
-    font-weight: bold; /* Makes the text bold */
-    font-size: 1.35em; /* Sets the size of the font. Adjust as needed */
+    font-weight: bold;
+    font-size: 1.35em;
     text-decoration: underline;
 }
 
@@ -93,17 +93,16 @@ html, body {
 
 .project-img-container {
     width: auto;
-    height: 13vw; /* This makes the height adjust automatically */
+    height: 13vw;
 }
 
 .project-img-container img {
     width: auto;
-    height: 100%; /* Maintain aspect ratio */
+    height: 100%;
 }
 
 .btn{
 	display:block;
-	/* margin:auto; */
 	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	position: relative;
@@ -155,28 +154,23 @@ html, body {
 }
 
 .highlight {
-    background-color: rgba(138, 43, 226, 0.2); /* Light purple background */
-    border: 2px solid #8a2be2; /* Matching border */
-    box-shadow: 0 0 8px #c29ed8; /* Enhanced purple glow for more prominence */
+    background-color: rgba(138, 43, 226, 0.2);
+    border: 2px solid #8a2be2;
+    box-shadow: 0 0 8px #c29ed8;
 }
 
 .btn-moving-gradient--purple{
 	background-image: linear-gradient(to right,hsl(246, 45%, 38%), hsl(296, 45%, 38%), hsl(276, 45%, 38%) , #3D348B);
-	/* box-shadow: 0 0.2vw 0.2vh 0 hsl(296, 45%, 38%); */
 }
 
-
-/* Unvisited link */
 a {
     color: #75A8EB;
 }
 
-/* Visited link */
 a:visited {
     color: #75A8EB;
 }
 
-/* Hovered link */
 a:hover {
     color: #CBC3E3;
 }

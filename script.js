@@ -279,7 +279,6 @@ $.get(`sdfs/${randomMol}.sdf`, function(data) {
 
     let style = {
         stick: {radius: 0.2, color: BOND_COLOR},
-        // sphere: {radius: 0.5, colorscheme: 'JMol'}
         sphere: {radius: 0.5, colorscheme: CUSTOM_COLOR_SCHEME}
     };
     viewer.setStyle(style);
