@@ -1,8 +1,6 @@
 html, body {
     height: 100vh;
     width: 100vw;
-    margin: 0;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -34,8 +32,6 @@ html, body {
     transition: right 2s;
     padding:0.5em;
     border-radius: 2vw;
-
-    display:none !important;
 }
 
 .panel.open {
