@@ -37,17 +37,6 @@ html, body {
     
 }
 
-@media (max-width: 480px){
-    .panel{
-        width: 90%;
-        font-size: large;
-       
-    }
-    .panel.open{
-        right:5% !important;
-    }
-}
-
 .panel.open {
     right:25%;
     /* right: 5vw; */
@@ -186,4 +175,21 @@ a:visited {
 
 a:hover {
     color: #CBC3E3;
+}
+
+@media (max-width: 981px){
+    .panel{
+        width: 90%;
+       
+    }
+    .panel.open{
+        right:5%;
+    }
+    .content{
+        width:90%;
+        font-size: 40px;
+    }
+    .content.open{
+        right:5%;
+    }
 }
