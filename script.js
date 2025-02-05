@@ -379,8 +379,8 @@ $.get(`sdfs/${randomMol}.sdf`, function(data) {
         });
     });
 
-    let el =document.querySelector('.test')
-    el.innerHTML='<span>This window is '+window.innerWidth+'px wide</span>'
+    // let el =document.querySelector('.test')
+    // el.innerHTML='<span>This window is '+window.innerWidth+'px wide</span>'
 
     viewer.render();
 
