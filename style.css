@@ -177,6 +177,11 @@ a:hover {
     color: #CBC3E3;
 }
 
+.test{
+    color:white;
+    font-size: 80px;
+}
+
 @media (max-width: 981px){
     .panel{
         width: 90%;
