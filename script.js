@@ -129,7 +129,7 @@ function openPanel(atom, labels, centerOfMass, content, labelsToIncrease, labels
 
     let new_quaternion = calculateRotation(atomToCenter, upDirection);
 
-    viewer.rotateWQ(new_quaternion, 32.5*viewportWidth/100, 50*viewportHeight/100, atom, 2000, labels,
+    viewer.rotateWQ(new_quaternion, 50*viewportWidth/100, 10*viewportHeight/100, atom, 2000, labels,
       labelsToIncrease, labelsToShrink, labelsToDefault,
       LARGE_FONT_SIZE, DEFAULT_FONT_SIZE, fixedPath=1);
 

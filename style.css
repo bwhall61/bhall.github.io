@@ -24,24 +24,40 @@ html, body {
 
 .panel {
     position: fixed;
-    top: 10vh;
-    right: -55vw;
-    width: 50vw;
-    height: 80vh;
-    background-color: rgb(35 93 102 / 50%);
+    top: 15vh;
+    right:-100%;
+    /* right: -55vw; */
+    width: 50%;
+    height: 80%;
+    background:rgb(30 43 60 / 70%);
+    /* background-color: rgb(35 93 102 / 50%); */
     transition: right 2s;
     padding:0.5em;
     border-radius: 2vw;
+    
+}
+
+@media (max-width: 480px){
+    .panel{
+        width: 90%;
+        font-size: large;
+       
+    }
+    .panel.open{
+        right:5% !important;
+    }
 }
 
 .panel.open {
-    right: 5vw;
+    right:25%;
+    /* right: 5vw; */
 }
 
 .content {
     color: white;
     position: fixed;
-    right: -55vw;
+    right:-100%;
+    /* right: -55vw; */
     width: 50vw;
     height: 80vh;
     transition: right 2s 0.5s;
@@ -53,7 +69,8 @@ html, body {
 }
 
 .content.open {
-    right: 5vw;
+    right:25%;
+    /* right: 5vw; */
 }
 
 .button-container {
