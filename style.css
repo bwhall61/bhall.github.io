@@ -68,6 +68,12 @@ html, body {
     margin-top: 0.5em;
 }
 
+.button-container button {
+    flex: 1; /* Makes buttons take equal space */
+    min-width: 80px; /* Prevents them from shrinking too much */
+    max-height: 80px;
+}
+
 .text-container {
     width:100%;
     font-family: Arial, Helvetica, sans-serif;
@@ -116,7 +122,6 @@ html, body {
 
 .close-btn-moving-gradient{
   background: none;
-  margin-top: 2vh;
   margin-left: 1vw;
   height: 4vh;
   width: 4vw;
@@ -193,8 +198,5 @@ a:hover {
     }
     .content.open{
         right:5%;
-    }
-    .btn{
-        font-size:10px
     }
 }
