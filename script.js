@@ -73,9 +73,6 @@ function calculateRotation(v1, v2) {
     const norm_v1 = { x: v1.x/mag_v1, y: v1.y/mag_v1, z: v1.z/mag_v1 };
     const norm_v2 = { x: v2.x/mag_v2, y: v2.y/mag_v2, z: v2.z/mag_v2 };
 
-    // drawVector(viewer, {x: 0, y: 0, z:0}, v1, "red", 0.2);
-    // drawVector(viewer, {x: 0, y: 0, z:0}, {x: -v2.x*100, y: -v2.y*100, z: -v2.z*100}, "blue", 0.2);
-
     // Compute the cross product to get the axis
     const axis = {
         x: norm_v1.y * norm_v2.z - norm_v1.z * norm_v2.y,
@@ -129,7 +126,10 @@ function openPanel(atom, labels, centerOfMass, content, labelsToIncrease, labels
 
     let new_quaternion = calculateRotation(atomToCenter, upDirection);
 
-    viewer.rotateWQ(new_quaternion, 50*viewportWidth/100, 10*viewportHeight/100, atom, 2000, labels,
+    // viewer.rotateWQ(new_quaternion, 50*viewportWidth/100, 10*viewportHeight/100, atom, 2000, labels,
+    //   labelsToIncrease, labelsToShrink, labelsToDefault,
+    //   LARGE_FONT_SIZE, DEFAULT_FONT_SIZE, fixedPath=1);
+    viewer.rotateWQ(new_quaternion, 50*screen.width/100, 10*screen.height/100, atom, 2000, labels,
       labelsToIncrease, labelsToShrink, labelsToDefault,
       LARGE_FONT_SIZE, DEFAULT_FONT_SIZE, fixedPath=1);
 
@@ -274,8 +274,9 @@ $.get(`sdfs/${randomMol}.sdf`, function(data) {
     viewer.addModel(data, 'sdf');
     viewer.zoomTo();
 
-    // viewer.translate(150/1440 * viewportWidth, 35/812 * viewportHeight);
-
+    if (screen.width < 480){
+        viewer.zoom(0.4)
+    }
 
     let style = {
         stick: {radius: 0.2, color: BOND_COLOR},
